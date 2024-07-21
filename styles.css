@@ -18,6 +18,10 @@ body {
     font-size: 32px; /* Измените размер шрифта здесь */
     margin-bottom: 10px;
     transition: color 0.1s;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #click-button {
