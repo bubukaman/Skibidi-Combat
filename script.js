@@ -16,15 +16,15 @@ menuIcon.addEventListener('click', () => {
 });
 
 function updateClickImage() {
-    if (clickCount < 10000) {
+    if (clickCount < 5) {
         clickImage.src = 'image1.png';
-    } else if (clickCount < 80000) {
+    } else if (clickCount < 15) {
         clickImage.src = 'image2.png';
-    } else if (clickCount < 200000) {
+    } else if (clickCount < 25) {
         clickImage.src = 'image3.png';
-    } else if (clickCount < 500000) {
+    } else if (clickCount < 35) {
         clickImage.src = 'image4.png';
-    } else if (clickCount < 1000000) {
+    } else if (clickCount < 45) {
         clickImage.src = 'image5.png';
     } else {
         clickImage.src = 'image6.png';
