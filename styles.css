@@ -3,19 +3,77 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #000;
+    color: #fff;
     font-family: Arial, sans-serif;
+    margin: 0;
 }
 
 #game-container {
     text-align: center;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #click-button {
-    padding: 10px 20px;
-    font-size: 16px;
+    width: 150px;
+    height: 150px;
+    background-color: #00f;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 auto;
 }
+
+#click-button img {
+    width: 80%;
+    height: 80%;
+}
+
+#menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#menu-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#menu-options {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#menu-options button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: #fff;
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#menu-options button:hover {
+    background-color: #555;
+}
+
+#output-button {
+    background-color: #0f0;
+}
+
+#upgrades-button {
+    background-color: #00f;
+}
+
