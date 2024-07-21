@@ -8,6 +8,10 @@ const menuOptions = document.getElementById('menu-options');
 clickButton.addEventListener('click', () => {
     clickCount++;
     clickCountSpan.textContent = clickCount;
+    clickCountSpan.style.color = '#808080'; // Серый цвет
+    setTimeout(() => {
+        clickCountSpan.style.color = '#ffffff'; // Белый цвет
+    }, 100);
     updateClickImage();
 });
 
@@ -16,17 +20,17 @@ menuIcon.addEventListener('click', () => {
 });
 
 function updateClickImage() {
-    if (clickCount < 5) {
-        clickImage.src = 'image1.png';
-    } else if (clickCount < 15) {
-        clickImage.src = 'image2.png';
-    } else if (clickCount < 25) {
-        clickImage.src = 'image3.png';
-    } else if (clickCount < 35) {
-        clickImage.src = 'image4.png';
-    } else if (clickCount < 45) {
-        clickImage.src = 'image5.png';
+    if (clickCount < 10000) {
+        clickImage.src = 'images/image1.png';
+    } else if (clickCount < 80000) {
+        clickImage.src = 'images/image2.png';
+    } else if (clickCount < 200000) {
+        clickImage.src = 'images/image3.png';
+    } else if (clickCount < 500000) {
+        clickImage.src = 'images/image4.png';
+    } else if (clickCount < 1000000) {
+        clickImage.src = 'images/image5.png';
     } else {
-        clickImage.src = 'image6.png';
+        clickImage.src = 'images/image6.png';
     }
 }
