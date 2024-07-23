@@ -23,7 +23,7 @@ body {
 #click-button {
     width: 300px; /* Измените размер кнопки здесь */
     height: 300px; /* Измените размер кнопки здесь */
-    background: url('images/buttonimage.png') no-repeat center center;
+    background: url('buttonimage.png') no-repeat center center;
     background-size: cover;
     border-radius: 50%;
     display: flex;
