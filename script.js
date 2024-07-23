@@ -21,16 +21,16 @@ menuIcon.addEventListener('click', () => {
 
 function updateClickImage() {
     if (clickCount < 10000) {
-        clickImage.src = 'images/image1.png';
+        clickImage.src = 'buttonimage.png';
     } else if (clickCount < 80000) {
-        clickImage.src = 'images/image2.png';
+        clickImage.src = 'image2.png';
     } else if (clickCount < 200000) {
-        clickImage.src = 'images/image3.png';
+        clickImage.src = 'image3.png';
     } else if (clickCount < 500000) {
-        clickImage.src = 'images/image4.png';
+        clickImage.src = 'image4.png';
     } else if (clickCount < 1000000) {
-        clickImage.src = 'images/image5.png';
+        clickImage.src = 'image5.png';
     } else {
-        clickImage.src = 'images/image6.png';
+        clickImage.src = 'image6.png';
     }
 }
