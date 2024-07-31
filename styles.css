@@ -12,27 +12,40 @@ body {
 
 #game-container {
     text-align: center;
+    position: relative;
 }
 
 #click-count {
-    font-size: 64px; /* Измените размер шрифта здесь */
+    font-size: 64px;
     margin-bottom: 10px;
     transition: color 0.1s;
 }
 
 #click-button {
-    width: 300px; /* Измените размер кнопки здесь */
-    height: 300px; /* Измените размер кнопки здесь */
+    width: 300px;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     margin: 0 auto;
+    position: relative;
 }
 
 #click-button img {
-    width: 80%; /* Измените размер изображения здесь */
-    height: 80%; /* Измените размер изображения здесь */
+    width: 80%;
+    height: 80%;
+}
+
+#click-image {
+    position: absolute;
+    z-index: 1;
+}
+
+#overlay-image {
+    position: absolute;
+    z-index: 2;
+    display: none; /* initially hidden */
 }
 
 #menu {
@@ -44,7 +57,7 @@ body {
 }
 
 #menu-icon {
-    font-size: 24px; /* Измените размер значка меню здесь */
+    font-size: 24px;
 }
 
 #menu-options {
@@ -52,7 +65,7 @@ body {
     position: absolute;
     top: 30px;
     right: 0;
-    width: 200px; /* Меню занимает 40% экрана */
+    width: 200px;
     background-color: #333;
     border: 1px solid #444;
     border-radius: 5px;
@@ -86,7 +99,7 @@ body {
 }
 
 #save-button {
-    background-color: #800080; /* Фиолетовый цвет */
+    background-color: #800080;
 }
 
 .small-button {
