@@ -22,8 +22,8 @@ body {
 }
 
 #click-button {
-    width: 450px; /* 1.5 раза больше исходного размера */
-    height: 450px; /* 1.5 раза больше исходного размера */
+    width: 300px; /* Размер кнопки остается прежним */
+    height: 300px; /* Размер кнопки остается прежним */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,12 +32,9 @@ body {
     position: relative;
 }
 
-#click-button img {
-    width: 80%;
-    height: 80%;
-}
-
 #click-image {
+    width: 120%; /* Увеличено в 1.5 раза */
+    height: 120%; /* Увеличено в 1.5 раза */
     position: absolute;
     z-index: 1;
 }
