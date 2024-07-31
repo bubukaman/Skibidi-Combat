@@ -40,6 +40,6 @@ function updateClickImage() {
     } else if (clickCount < 40) {
         overlayImage.src = 'image8.png';
     } else {
-        overlayImage.src = 'image8.png'; // Вы можете изменить это на другое изображение, если нужно
+        overlayImage.src = 'image8.png'; // You can change this to a different image if needed
     }
 }
