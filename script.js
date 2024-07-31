@@ -2,6 +2,7 @@ let clickCount = 0;
 const clickButton = document.getElementById('click-button');
 const clickCountSpan = document.getElementById('click-count');
 const clickImage = document.getElementById('click-image');
+const overlayImage = document.getElementById('overlay-image');
 const menuIcon = document.getElementById('menu-icon');
 const menuOptions = document.getElementById('menu-options');
 
@@ -20,23 +21,25 @@ menuIcon.addEventListener('click', () => {
 });
 
 function updateClickImage() {
+    overlayImage.style.display = 'block'; // Ensure the overlay image is visible
+
     if (clickCount < 5) {
-        clickImage.src = 'image1.png';
+        overlayImage.src = 'image1.png';
     } else if (clickCount < 12) {
-        clickImage.src = 'image2.png';
+        overlayImage.src = 'image2.png';
     } else if (clickCount < 16) {
-        clickImage.src = 'image3.png';
+        overlayImage.src = 'image3.png';
     } else if (clickCount < 20) {
-        clickImage.src = 'image4.png';
+        overlayImage.src = 'image4.png';
     } else if (clickCount < 24) {
-        clickImage.src = 'image5.png';
+        overlayImage.src = 'image5.png';
     } else if (clickCount < 30) {
-        clickImage.src = 'image6.png';
+        overlayImage.src = 'image6.png';
     } else if (clickCount < 35) {
-        clickImage.src = 'image7.png';
+        overlayImage.src = 'image7.png';
     } else if (clickCount < 40) {
-        clickImage.src = 'image8.png';
+        overlayImage.src = 'image8.png';
     } else {
-        clickImage.src = 'image8.png'; // You can change this to a different image if needed
+        overlayImage.src = 'image8.png'; // Вы можете изменить это на другое изображение, если нужно
     }
 }
