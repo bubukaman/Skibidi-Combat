@@ -23,23 +23,35 @@ menuIcon.addEventListener('click', () => {
 function updateClickImage() {
     overlayImage.style.display = 'block'; // Ensure the overlay image is visible
 
+    // Remove all image classes
+    overlayImage.classList.remove('image1', 'image2', 'image3', 'image4', 'image5', 'image6', 'image7', 'image8');
+
     if (clickCount < 5) {
         overlayImage.src = 'image1.png';
+        overlayImage.classList.add('image1');
     } else if (clickCount < 12) {
         overlayImage.src = 'image2.png';
+        overlayImage.classList.add('image2');
     } else if (clickCount < 16) {
         overlayImage.src = 'image3.png';
+        overlayImage.classList.add('image3');
     } else if (clickCount < 20) {
         overlayImage.src = 'image4.png';
+        overlayImage.classList.add('image4');
     } else if (clickCount < 24) {
         overlayImage.src = 'image5.png';
+        overlayImage.classList.add('image5');
     } else if (clickCount < 30) {
         overlayImage.src = 'image6.png';
+        overlayImage.classList.add('image6');
     } else if (clickCount < 35) {
         overlayImage.src = 'image7.png';
+        overlayImage.classList.add('image7');
     } else if (clickCount < 40) {
         overlayImage.src = 'image8.png';
+        overlayImage.classList.add('image8');
     } else {
-        overlayImage.src = 'image8.png'; // You can change this to a different image if needed
+        overlayImage.src = 'image8.png'; // Вы можете изменить это на другое изображение, если нужно
+        overlayImage.classList.add('image8');
     }
 }
