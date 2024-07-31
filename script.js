@@ -20,17 +20,23 @@ menuIcon.addEventListener('click', () => {
 });
 
 function updateClickImage() {
-    if (clickCount < 10000) {
-        clickImage.src = 'buttonimage.png';
-    } else if (clickCount < 80000) {
+    if (clickCount < 5) {
+        clickImage.src = 'image1.png';
+    } else if (clickCount < 12) {
         clickImage.src = 'image2.png';
-    } else if (clickCount < 200000) {
+    } else if (clickCount < 16) {
         clickImage.src = 'image3.png';
-    } else if (clickCount < 500000) {
+    } else if (clickCount < 20) {
         clickImage.src = 'image4.png';
-    } else if (clickCount < 1000000) {
+    } else if (clickCount < 24) {
         clickImage.src = 'image5.png';
-    } else {
+    } else if (clickCount < 30) {
         clickImage.src = 'image6.png';
+    } else if (clickCount < 35) {
+        clickImage.src = 'image7.png';
+    } else if (clickCount < 40) {
+        clickImage.src = 'image8.png';
+    } else {
+        clickImage.src = 'image8.png'; // You can change this to a different image if needed
     }
 }
