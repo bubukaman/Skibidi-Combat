@@ -1,7 +1,7 @@
 let clickCount = 0;
-let energy = 20; // Maximum energy
-const maxEnergy = 20; // Configurable maximum energy
-const energyRecoveryTime = 20 * 60 * 1000; // 20 minutes in milliseconds
+let energy = 50; // Maximum energy
+const maxEnergy = 50; // Configurable maximum energy
+const energyRecoveryTime = 1 * 60 * 1000; // 20 minutes in milliseconds
 
 const clickButton = document.getElementById('click-button');
 const clickCountSpan = document.getElementById('click-count');
