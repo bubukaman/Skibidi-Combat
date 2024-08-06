@@ -1,31 +1,46 @@
 let clickCount = 0;
+let energy = 20; // Maximum energy
+const maxEnergy = 20; // Configurable maximum energy
+const energyRecoveryTime = 20 * 60 * 1000; // 20 minutes in milliseconds
+
 const clickButton = document.getElementById('click-button');
 const clickCountSpan = document.getElementById('click-count');
 const clickImage = document.getElementById('click-image');
 const overlayImage = document.getElementById('overlay-image');
 const menuIcon = document.getElementById('menu-icon');
 const menuOptions = document.getElementById('menu-options');
+const energyBar = document.getElementById('energy-bar');
+const noEnergyMessage = document.getElementById('no-energy-message');
+const recoveryTime = document.getElementById('recovery-time');
 
 clickButton.addEventListener('click', () => {
-    clickCount++;
-    clickCountSpan.textContent = clickCount;
-    clickCountSpan.style.color = '#808080'; // Серый цвет
-    setTimeout(() => {
-        clickCountSpan.style.color = '#ffffff'; // Белый цвет
-    }, 100);
-    updateClickImage();
+    if (energy > 0) {
+        clickCount++;
+        energy--;
+        updateClickCount();
+        updateEnergyBar();
+        updateClickImage();
+    } else {
+        displayNoEnergyMessage();
+    }
 });
 
 menuIcon.addEventListener('click', () => {
     menuOptions.style.display = menuOptions.style.display === 'block' ? 'none' : 'block';
 });
 
+function updateClickCount() {
+    clickCountSpan.textContent = clickCount;
+    clickCountSpan.style.color = '#808080';
+    setTimeout(() => {
+        clickCountSpan.style.color = '#ffffff';
+    }, 100);
+}
+
 function updateClickImage() {
-    overlayImage.style.display = 'block'; // Ensure the overlay image is visible
-
-    // Remove all image classes
+    overlayImage.style.display = 'block';
     overlayImage.classList.remove('image1', 'image2', 'image3', 'image4', 'image5', 'image6', 'image7', 'image8');
-
+    
     if (clickCount < 5) {
         overlayImage.src = 'image1.png';
         overlayImage.classList.add('image1');
@@ -51,7 +66,31 @@ function updateClickImage() {
         overlayImage.src = 'image8.png';
         overlayImage.classList.add('image8');
     } else {
-        overlayImage.src = 'image8.png'; // Вы можете изменить это на другое изображение, если нужно
+        overlayImage.src = 'image8.png';
         overlayImage.classList.add('image8');
     }
 }
+
+function updateEnergyBar() {
+    const energyPercentage = (energy / maxEnergy) * 100;
+    energyBar.style.width = `${energyPercentage}%`;
+    if (energy === 0) {
+        displayNoEnergyMessage();
+    }
+}
+
+function displayNoEnergyMessage() {
+    energyBar.parentNode.classList.add('hidden');
+    noEnergyMessage.classList.remove('hidden');
+    const recoveryMinutes = Math.ceil(energyRecoveryTime / 60000);
+    recoveryTime.textContent = `Восстановление через ${recoveryMinutes} минут`;
+}
+
+function recoverEnergy() {
+    energy = maxEnergy;
+    energyBar.parentNode.classList.remove('hidden');
+    noEnergyMessage.classList.add('hidden');
+    updateEnergyBar();
+}
+
+setInterval(recoverEnergy, energyRecoveryTime);
