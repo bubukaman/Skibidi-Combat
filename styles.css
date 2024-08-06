@@ -33,8 +33,8 @@ body {
 }
 
 #click-image {
-    width: 120%; /* Увеличено в 1.5 раза */
-    height: 120%; /* Увеличено в 1.5 раза */
+    width: 120%;
+    height: 120%;
     position: absolute;
     z-index: 1;
 }
@@ -42,7 +42,7 @@ body {
 .overlay-image {
     position: absolute;
     z-index: 2;
-    display: none; /* initially hidden */
+    display: none;
 }
 
 #menu {
@@ -105,30 +105,55 @@ body {
     padding: 5px;
 }
 
+/* Styles for the energy bar */
+#energy-container {
+    width: 300px; /* Adjust the width of the energy bar container */
+    height: 10px; /* Adjust the height (thickness) of the energy bar */
+    background-color: #f00; /* Red background indicating used energy */
+    margin: 20px auto 0; /* Adjust the margin to position the energy bar */
+    position: relative;
+}
+
+#energy-bar {
+    width: 100%;
+    height: 100%;
+    background-color: #0f0; /* Green foreground indicating available energy */
+}
+
+#no-energy-message {
+    color: red;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font for the recovery message */
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
 /* Individual styles for each overlay image */
 .image1 {
-    width: 300px;
-    height: 300px;
+    width: 100px;
+    height: 100px;
 }
 
 .image2 {
-    width: 240px;
-    height: 240px;
+    width: 120px;
+    height: 120px;
 }
 
 .image3 {
-    width: 240px;
-    height: 240px;
+    width: 140px;
+    height: 140px;
 }
 
 .image4 {
-    width: 240px;
-    height: 240px;
+    width: 160px;
+    height: 160px;
 }
 
 .image5 {
-    width: 240px;
-    height: 240px;
+    width: 180px;
+    height: 180px;
 }
 
 .image6 {
@@ -142,17 +167,6 @@ body {
 }
 
 .image8 {
-    width: 260px;
-    height: 260px;
-}
-
-.image9 {
-    width: 260px;
-    height: 260px;
-}
-
-
-.image10 {
-    width: 260px;
-    height: 260px;
+    width: 240px;
+    height: 240px;
 }
