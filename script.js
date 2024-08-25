@@ -1,7 +1,7 @@
 let clickCount = 0;
-let energy = 50; // Maximum energy
-const maxEnergy = 50; // Configurable maximum energy
-const energyRecoveryTime = 1 * 60 * 1000; // 20 minutes in milliseconds
+let energy = 150; // Начальное количество энергии
+const maxEnergy = 150; // Максимальная энергия (настраивается)
+const energyRecoveryRate = 2000; // Время восстановления 1 энергии в миллисекундах (настраивается)
 
 const clickButton = document.getElementById('click-button');
 const clickCountSpan = document.getElementById('click-count');
@@ -9,19 +9,18 @@ const clickImage = document.getElementById('click-image');
 const overlayImage = document.getElementById('overlay-image');
 const menuIcon = document.getElementById('menu-icon');
 const menuOptions = document.getElementById('menu-options');
-const energyBar = document.getElementById('energy-bar');
-const noEnergyMessage = document.getElementById('no-energy-message');
-const recoveryTime = document.getElementById('recovery-time');
+const energyCount = document.getElementById('energy-count');
 
 clickButton.addEventListener('click', () => {
     if (energy > 0) {
         clickCount++;
         energy--;
         updateClickCount();
-        updateEnergyBar();
+        updateEnergyCount();
         updateClickImage();
     } else {
-        displayNoEnergyMessage();
+        // Если энергии нет, просто обновляем отображение
+        updateEnergyCount();
     }
 });
 
@@ -71,26 +70,15 @@ function updateClickImage() {
     }
 }
 
-function updateEnergyBar() {
-    const energyPercentage = (energy / maxEnergy) * 100;
-    energyBar.style.width = `${energyPercentage}%`;
-    if (energy === 0) {
-        displayNoEnergyMessage();
-    }
-}
-
-function displayNoEnergyMessage() {
-    energyBar.parentNode.classList.add('hidden');
-    noEnergyMessage.classList.remove('hidden');
-    const recoveryMinutes = Math.ceil(energyRecoveryTime / 60000);
-    recoveryTime.textContent = `Восстановление через ${recoveryMinutes} минут`;
+function updateEnergyCount() {
+    energyCount.textContent = `${energy}/${maxEnergy}`;
 }
 
 function recoverEnergy() {
-    energy = maxEnergy;
-    energyBar.parentNode.classList.remove('hidden');
-    noEnergyMessage.classList.add('hidden');
-    updateEnergyBar();
+    if (energy < maxEnergy) {
+        energy++;
+        updateEnergyCount();
+    }
 }
 
-setInterval(recoverEnergy, energyRecoveryTime);
+setInterval(recoverEnergy, energyRecoveryRate); // Восстановление энергии по одной каждые 2 секунды (2000 мс)
