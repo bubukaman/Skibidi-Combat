@@ -105,68 +105,17 @@ body {
     padding: 5px;
 }
 
-/* Styles for the energy bar */
-#energy-container {
-    width: 300px; /* Adjust the width of the energy bar container */
-    height: 10px; /* Adjust the height (thickness) of the energy bar */
-    background-color: #f00; /* Red background indicating used energy */
-    margin: 20px auto 0; /* Adjust the margin to position the energy bar */
+/* Стиль для отображения количества энергии */
+#energy-count {
+    font-size: 24px; /* Размер текста */
+    color: #fff; /* Цвет текста */
+    margin-top: 10px; /* Положение по вертикали */
+}
+
+/* Положение текста с энергией */
+#energy-count {
     position: relative;
-}
-
-#energy-bar {
-    width: 100%;
-    height: 100%;
-    background-color: #0f0; /* Green foreground indicating available energy */
-}
-
-#no-energy-message {
-    color: red;
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font for the recovery message */
-    margin-top: 10px;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Individual styles for each overlay image */
-.image1 {
-    width: 100px;
-    height: 100px;
-}
-
-.image2 {
-    width: 120px;
-    height: 120px;
-}
-
-.image3 {
-    width: 140px;
-    height: 140px;
-}
-
-.image4 {
-    width: 160px;
-    height: 160px;
-}
-
-.image5 {
-    width: 180px;
-    height: 180px;
-}
-
-.image6 {
-    width: 200px;
-    height: 200px;
-}
-
-.image7 {
-    width: 220px;
-    height: 220px;
-}
-
-.image8 {
-    width: 240px;
-    height: 240px;
+    top: 20px; /* Измените это значение для изменения вертикального положения */
+    left: 0; /* Измените это значение для изменения горизонтального положения */
+    text-align: center;
 }
