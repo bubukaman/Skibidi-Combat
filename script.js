@@ -14,13 +14,12 @@ const energyCount = document.getElementById('energy-count');
 clickButton.addEventListener('click', () => {
     if (energy > 0) {
         clickCount++;
-        energy--;
+        energy--; // Уменьшение энергии на 1 при каждом клике
         updateClickCount();
-        updateEnergyCount();
+        updateEnergyCount(); // Обновление отображения энергии
         updateClickImage();
     } else {
-        // Если энергии нет, просто обновляем отображение
-        updateEnergyCount();
+        updateEnergyCount(); // Обновление отображения энергии, если энергии нет
     }
 });
 
