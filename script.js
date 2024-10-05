@@ -152,10 +152,21 @@ function confirmSize() {
 }
 
 function showCode() {
-    if (!sizesConfirmed) {
-        alert("Вы должны подтвердить размер.");
+    // Проверяем, если среди заказанных товаров есть те, которые требуют выбора размера
+    let hasSizeSelection = false;
+    Object.keys(orderCount).forEach(item => {
+        if (orderCount[item] > 0 && (item === "Фри" || item === "Шаурма" || item === "Мороженое")) {
+            hasSizeSelection = true;
+        }
+    });
+
+    // Если есть товары с выбором размера и размер не был подтверждён, показываем модальное окно
+    if (hasSizeSelection && !sizesConfirmed) {
+        alert("Вы должны выбрать размер для товаров.");
         return;
     }
+
+    // Если все условия выполнены, показываем код заказа
     const codeContainer = document.getElementById("code-container");
     codeContainer.classList.remove("hidden");
 
