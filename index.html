@@ -19,8 +19,10 @@
     </div>
 
     <div id="code-container" class="code-container hidden">
+        <button id="back-button" class="back-button" onclick="goBack()">Назад</button>
         <h2>Ваш код:</h2>
         <p id="order-code"></p>
+        <p id="total-cost"></p>
         <button id="developer-button" class="developer-button" onclick="showDeveloper()">Разработчик</button>
     </div>
 
@@ -29,6 +31,13 @@
         <input type="text" id="developer-input" />
         <button id="back-button" class="back-button" onclick="goBack()">Назад</button>
         <div id="order-details"></div>
+    </div>
+
+    <!-- Модальное окно для выбора размера -->
+    <div id="size-modal" class="modal hidden">
+        <h2 id="modal-title"></h2>
+        <div id="size-options"></div>
+        <button class="confirm-button" onclick="confirmSize()">ПОДТВЕРДИТЬ</button>
     </div>
 
     <script src="script.js"></script>
