@@ -2,23 +2,39 @@ let currentPage = 0;
 let orderCount = {};
 let orderHistory = [];
 let orderCode = '';
+let totalCost = 0;
+const prices = {
+    "Бургер": 4,
+    "Веган Бургер": 4.5,
+    "Фри": [3, 2.5],   // Обычный, Маленький
+    "Шаурма": [4, 3],  // Обычный, Маленький
+    "Мороженое": [3.5, 2.5]
+};
+let itemToSize = null;
+let currentSizeSelection = [];
 
 const pages = [
     {
         category: "Гарнир",
         items: [
-            { name: "Бургер", price: 0 },
-            { name: "Веган Бургер", price: 0 },
-            { name: "Фри", price: 0 },
-            { name: "Шаурма", price: 0 },
-            { name: "Шаурма Small", price: 0 }
+            { name: "Бургер", price: 4 },
+            { name: "Веган Бургер", price: 4.5 },
+            { name: "Фри", price: 3 },
+            { name: "Шаурма", price: 4 }
         ]
     },
     {
         category: "Сладости",
         items: [
-            { name: "Мороженое", price: 0 },
-            { name: "Напиток", price: 0 }
+            { name: "Мороженое", price: 3.5 }
+        ]
+    },
+    {
+        category: "Напитки",
+        items: [
+            { name: "Coca-Cola", price: 2 },
+            { name: "McDristy", price: 2 },
+            { name: "Mahito", price: 1.5 }
         ]
     }
 ];
@@ -42,7 +58,7 @@ function renderMenu() {
 
         const itemPrice = document.createElement("span");
         itemPrice.className = "menu-item-price";
-        itemPrice.textContent = `${item.price}₽`;
+        itemPrice.textContent = `${item.price}К`;
 
         const orderButton = document.createElement("button");
         orderButton.className = "order-button";
@@ -52,6 +68,10 @@ function renderMenu() {
         orderButton.onclick = function () {
             orderCount[item.name] = (orderCount[item.name] + 1) % 3;
             if (orderCount[item.name] === 1) {
+                if (item.name === "Фри" || item.name === "Шаурма" || item.name === "Мороженое") {
+                    itemToSize = item.name;
+                    showSizeSelection(item.name);
+                }
                 orderButton.textContent = "ЗАКАЗАНО x1";
                 orderButton.classList.add("ordered1");
             } else if (orderCount[item.name] === 2) {
@@ -77,53 +97,4 @@ function renderMenu() {
     document.getElementById("next-page").disabled = currentPage === pages.length - 1;
 }
 
-function updatePayButton() {
-    const anyOrdered = Object.values(orderCount).some(count => count > 0);
-    document.getElementById("pay-button").classList.toggle("hidden", !anyOrdered);
-}
-
-function nextPage() {
-    if (currentPage < pages.length - 1) {
-        currentPage++;
-        renderMenu();
-    }
-}
-
-function prevPage() {
-    if (currentPage > 0) {
-        currentPage--;
-        renderMenu();
-    }
-}
-
-function showCode() {
-    document.getElementById("code-container").classList.remove("hidden");
-    orderHistory = Object.entries(orderCount).filter(([_, count]) => count > 0);
-    orderCode = generateCode();
-    document.getElementById("order-code").textContent = orderCode;
-}
-
-function generateCode() {
-    return Array(6).fill(0).map(() => Math.floor(Math.random() * 10)).join('');
-}
-
-function showDeveloper() {
-    document.getElementById("developer-section").classList.remove("hidden");
-    document.getElementById("code-container").classList.add("hidden");
-}
-
-function goBack() {
-    document.getElementById("developer-section").classList.add("hidden");
-    document.getElementById("code-container").classList.remove("hidden");
-}
-
-document.getElementById("developer-input").addEventListener("input", function () {
-    if (this.value === orderCode) {
-        const orderDetails = orderHistory.map(([item, count]) => `${item} x${count}`).join(", ");
-        document.getElementById("order-details").textContent = `Вы заказали: ${orderDetails}`;
-    } else {
-        document.getElementById("order-details").textContent = "Неверный код!";
-    }
-});
-
-document.addEventListener("DOMContentLoaded", renderMenu);
+function updatePayButton()
