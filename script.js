@@ -94,7 +94,4 @@ function renderMenu() {
 
     pageNumber.textContent = `Страница ${currentPage + 1}`;
     document.getElementById("prev-page").disabled = currentPage === 0;
-    document.getElementById("next-page").disabled = currentPage === pages.length - 1;
-}
-
-function updatePayButton()
+    document.getElementById("next-page").disabled = currentPage === pages.length - 1
