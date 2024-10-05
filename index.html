@@ -1,28 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker Game</title>
+    <title>Меню</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="menu">
-        <p id="menu-icon">menu</p>
-        <div id="menu-options">
-            <button id="output-button" class="menu-button">ВЫВЕСТИ</button>
-            <button id="upgrades-button" class="menu-button">УЛУЧШЕНИЯ</button>
-            <button id="save-button" class="menu-button">СОХРАНИТЬ</button>
-            <button id="load-button" class="menu-button small-button">Загрузить</button>
+    <div class="container">
+        <h1 id="category">Гарнир</h1>
+        <div id="menu-items"></div>
+        <div class="pagination">
+            <button id="prev-page" onclick="prevPage()">Назад</button>
+            <span id="page-number">Страница 1</span>
+            <button id="next-page" onclick="nextPage()">Вперёд</button>
         </div>
-    </div>
-    <div id="game-container">
-        <p id="click-count">0</p>
-        <div id="click-button">
-            <img id="click-image" src="buttonimage.png" alt="Click Image">
-            <img id="overlay-image" class="overlay-image" src="image1.png" alt="Overlay Image">
-        </div>
-        <p id="energy-count">150/150</p> <!-- Элемент для отображения энергии -->
     </div>
     <script src="script.js"></script>
 </body>
