@@ -1,7 +1,5 @@
 let currentPage = 0;
 let orderCount = {};
-let orderHistory = [];
-let orderCode = '';
 let totalCost = 0;
 let itemToSize = null;
 let currentSizeSelection = [];
@@ -10,8 +8,8 @@ let sizesConfirmed = false;
 const prices = {
     "Бургер": 4,
     "Веган Бургер": 4.5,
-    "Фри": [3, 2.5],   // Обычный, Маленький
-    "Шаурма": [4, 3],  // Обычный, Маленький
+    "Фри": [3, 2.5],
+    "Шаурма": [4, 3],
     "Мороженое": [3.5, 2.5]
 };
 
@@ -40,6 +38,7 @@ const pages = [
     }
 ];
 
+// Отображение меню
 function renderMenu() {
     const category = document.getElementById("category");
     const menuItems = document.getElementById("menu-items");
@@ -113,8 +112,10 @@ function updatePayButton() {
     }
 }
 
+// Показ выбора размера
 function showSizeSelection(itemName) {
     const sizeModal = document.getElementById("size-modal");
+    const modalOverlay = document.getElementById("modal-overlay");
     const modalTitle = document.getElementById("modal-title");
     const sizeOptions = document.getElementById("size-options");
     const confirmButton = document.getElementById("confirm-button");
@@ -142,11 +143,16 @@ function showSizeSelection(itemName) {
     });
 
     sizeModal.classList.remove("hidden");
+    modalOverlay.style.display = "block"; // Показываем серый фон
 }
 
 function confirmSize() {
     const sizeModal = document.getElementById("size-modal");
+    const modalOverlay = document.getElementById("modal-overlay");
+
     sizeModal.classList.add("hidden");
+    modalOverlay.style.display = "none"; // Убираем серый фон после закрытия
+
     sizesConfirmed = true;
     updatePayButton();
 }
@@ -176,9 +182,5 @@ function generateOrderCode() {
 
 function goBack() {
     const codeContainer = document.getElementById("code-container");
-    const developerSection = document.getElementById("developer-section");
     codeContainer.classList.add("hidden");
-    developerSection.classList.add("hidden");
 }
-
-renderMenu();
