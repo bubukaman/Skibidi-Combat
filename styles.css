@@ -17,7 +17,7 @@ body {
     text-align: center;
 }
 
-h1 {
+h1, h2 {
     margin-bottom: 20px;
 }
 
@@ -54,9 +54,14 @@ h1 {
     cursor: pointer;
 }
 
-.order-button.ordered {
+.order-button.ordered1 {
     background-color: gray;
-    cursor: default;
+    color: white;
+}
+
+.order-button.ordered2 {
+    background-color: lightgray;
+    color: black;
 }
 
 .pagination {
@@ -76,4 +81,37 @@ button {
 button:disabled {
     background-color: lightgray;
     cursor: default;
+}
+
+.hidden {
+    display: none;
+}
+
+.pay-button {
+    background-color: blue;
+    font-size: 18px;
+    padding: 15px 30px;
+}
+
+.code-container, .developer-section {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.developer-button {
+    background-color: blue;
+    margin-top: 20px;
+}
+
+.back-button {
+    background-color: red;
+    margin-top: 20px;
 }
