@@ -152,21 +152,10 @@ function confirmSize() {
 }
 
 function showCode() {
-    // Проверяем, если среди заказанных товаров есть те, которые требуют выбора размера
-    let hasSizeSelection = false;
-    Object.keys(orderCount).forEach(item => {
-        if (orderCount[item] > 0 && (item === "Фри" || item === "Шаурма" || item === "Мороженое")) {
-            hasSizeSelection = true;
-        }
-    });
-
-    // Если есть товары с выбором размера и размер не был подтверждён, показываем модальное окно
-    if (hasSizeSelection && !sizesConfirmed) {
-        alert("Вы должны выбрать размер для товаров.");
+    if (!sizesConfirmed) {
+        alert("Вы должны подтвердить размер.");
         return;
     }
-
-    // Если все условия выполнены, показываем код заказа
     const codeContainer = document.getElementById("code-container");
     codeContainer.classList.remove("hidden");
 
@@ -188,8 +177,11 @@ function generateOrderCode() {
 function goBack() {
     const codeContainer = document.getElementById("code-container");
     const developerSection = document.getElementById("developer-section");
+    const sizeModal = document.getElementById("size-modal");
+    
     codeContainer.classList.add("hidden");
     developerSection.classList.add("hidden");
+    sizeModal.classList.add("hidden"); // Скрыть модальное окно при возврате
 }
 
 renderMenu();
