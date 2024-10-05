@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,22 @@
             <span id="page-number">Страница 1</span>
             <button id="next-page" onclick="nextPage()">Вперёд</button>
         </div>
+        <button id="pay-button" class="pay-button hidden" onclick="showCode()">ОПЛАТИТЬ</button>
     </div>
+
+    <div id="code-container" class="code-container hidden">
+        <h2>Ваш код:</h2>
+        <p id="order-code"></p>
+        <button id="developer-button" class="developer-button" onclick="showDeveloper()">Разработчик</button>
+    </div>
+
+    <div id="developer-section" class="developer-section hidden">
+        <h2>Введите код:</h2>
+        <input type="text" id="developer-input" />
+        <button id="back-button" class="back-button" onclick="goBack()">Назад</button>
+        <div id="order-details"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
