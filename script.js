@@ -1,7 +1,6 @@
 let currentPage = 0;
 let orderCount = {};
-let orderHistory = [];
-let orderCode = '';
+let orderHistory = [];let orderCode = '';
 let totalCost = 0;
 let itemToSize = null;
 let currentSizeSelection = [];
